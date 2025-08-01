@@ -70,7 +70,7 @@ function Chat() {
     const payload = JSON.parse(atob(token.split('.')[1]));
     const userId = payload.id;
 
-    axios.get(`http://localhost:5000/api/query/files/${userId}`, {
+    axios.get(`https://documind-dquf.onrender.com/api/query/files/${userId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => setFileHistory(res.data.files))
@@ -153,7 +153,7 @@ function Chat() {
       formData.append("pdfUrl", pdfUrlInput);
       formData.append("userQuery", "Initial document load from URL.");
 
-      const res = await axios.post("http://localhost:5000/api/query/file-query", formData, {
+      const res = await axios.post("https://documind-dquf.onrender.com/api/query/file-query", formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -200,7 +200,7 @@ function Chat() {
 
       formData.append("userQuery", userMessage);
 
-      const res = await axios.post("http://localhost:5000/api/query/file-query", formData, {
+      const res = await axios.post("https://documind-dquf.onrender.com/api/query/file-query", formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -255,7 +255,7 @@ function Chat() {
     setChat((prev) => [...prev, { type: "user", content: "Summarize the document." }]);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/query/summarize", {
+      const res = await axios.get("https://documind-dquf.onrender.com/api/query/summarize", {
         headers: { Authorization: `Bearer ${token}` }
       });
       const summary = res.data.summary;

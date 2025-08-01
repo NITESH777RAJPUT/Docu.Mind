@@ -29,7 +29,7 @@ const Login = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", form);
+      const res = await axios.post("https://documind-dquf.onrender.com/api/auth/login", form);
       localStorage.setItem("token", res.data.token);
       navigate("/chat");
     } catch (err) {
@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = "https://documind-dquf.onrender.com/api/auth/google";
   };
 
   return (

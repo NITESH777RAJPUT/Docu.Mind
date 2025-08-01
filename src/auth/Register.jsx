@@ -34,7 +34,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await axios.post("https://documind-dquf.onrender.com/api/auth/register", form);
       alert("✅ Registration successful! Please proceed to login.");
       navigate("/login");
     } catch (err) {
@@ -45,7 +45,7 @@ const Register = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = "https://documind-dquf.onrender.com/api/auth/google";
   };
 
   return (
